@@ -1,6 +1,5 @@
 !/usr/bin/env bash
 # Using what you did for task #1, make your fix short and sweet.
-
 pkill -f apache2
 sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 sudo chmod -R 777 /etc/nginx/nginx.conf
