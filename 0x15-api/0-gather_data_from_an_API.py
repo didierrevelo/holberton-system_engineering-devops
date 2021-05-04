@@ -7,10 +7,10 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    url_id = 'https://jsonplaceholder.typicode.com/users/' + argv[1]
+    url_id = 'https://jsonplaceholder.typicode.com/users/{}'
     url_todo = 'https://jsonplaceholder.typicode.com/todos?userId={}'
 
-    response_id = get(url_id)
+    response_id = get(url_id.format(argv[1]))
     response_todo = get(url_todo.format(argv[1]))
 
     json_id = response_id.json()
@@ -28,5 +28,8 @@ if __name__ == "__main__":
     print("Employee {} is done with tasks({}/{}):"
           .format(name_user, total, tasks))
 
-for list in completes:
-    print("\t {}".format(list.get("title")))
+
+    for name_tasks in completes:
+        print('\t ' + name_tasks.get('title'))
+
+
