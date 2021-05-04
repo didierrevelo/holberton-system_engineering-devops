@@ -18,7 +18,7 @@ if __name__ == "__main__":
     json_todo = response_todo.json()
 
     name_user = json_id.get('username')
-    csv_name =  argv[1] + '.csv'
+    csv_name = argv[1] + '.csv'
     with open(csv_name, 'w') as file_csv:
             csv_w = writer(file_csv, quoting=QUOTE_ALL)
             for search in json_todo:
