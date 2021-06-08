@@ -1,4 +1,4 @@
-#!/usr/bin/pythoun3
+#!/usr/bin/python3
 """[summary]
 
     Returns:
