@@ -26,4 +26,3 @@ if __name__ == "__main__":
         json_format[all_users['id']] = user_list
     with open(jsonFile, "w") as file:
         json.dump(json_format, file)
-        
