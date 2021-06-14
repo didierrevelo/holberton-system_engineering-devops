@@ -1,21 +1,18 @@
 #!/usr/bin/python3
-""" Function that queries Reddit API """
+""" task 2 """
 import requests
 
 
 def recurse(subreddit, hot_list=[], after=""):
-    """ this function returns a list containing
-    the titles of all hot articles for a given subreddit
-    """
     url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit,
                                                                  after)
-    headers = {'User-Agent': 'apposvendorandversion'}
-    req_subreddit = requests.get(url, headers=headers).json()
-    if 'error' in req_subreddit:
+    head = {"User-Agent": "linux: didierrevelo:v1.0.0 by /u/didierrevelo"}
+    req_reddit = requests.get(url, headers=head).json()
+    if 'error' in req_reddit:
         return None
-    for titles in req_subreddit['data']['children']:
+    for titles in req_reddit['data']['children']:
         hot_list.append(titles['data']['title'])
-    next = req_subreddit['data']['after']
-    if next is not None:
-        recurse(subreddit, hot_list, next)
+    other = req_reddit['data']['after']
+    if other is not None:
+        recurse(subreddit, hot_list, other)
     return hot_list
